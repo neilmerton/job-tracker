@@ -5,10 +5,12 @@ import { getConnectionById, listUpdatesForParent } from "@/lib/repositories";
 
 export default async function ConnectionDetailPage({
   params,
-}: {
-  params: { id: string };
-}) {
-  const connection = await getConnectionById(params.id);
+}: Readonly<{
+  params: Promise<{ id: string }>;
+}>) {
+  const { id } = await params;
+  const connection = await getConnectionById(id);
+  
   if (!connection) {
     notFound();
   }
