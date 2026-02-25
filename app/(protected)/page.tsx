@@ -21,7 +21,7 @@ export default async function DashboardPage() {
   );
 
   return (
-    <main>
+    <section>
       <header className="page-header">
         <h1 className="page-header__title">Overview</h1>
         <p className="page-header__subtitle">
@@ -31,8 +31,7 @@ export default async function DashboardPage() {
 
       <section
         aria-labelledby="applications-summary-title"
-        className="card"
-        style={{ marginBottom: "1rem" }}
+        style={{ marginBlockEnd: "2rem" }}
       >
         <header className="card__header">
           <h2 id="applications-summary-title" className="page-header__title">
@@ -60,10 +59,7 @@ export default async function DashboardPage() {
         ) : null}
       </section>
 
-      <section
-        aria-labelledby="connections-summary-title"
-        className="card"
-      >
+      <section aria-labelledby="connections-summary-title">
         <header className="card__header">
           <h2 id="connections-summary-title" className="page-header__title">
             Connection requests
@@ -91,7 +87,7 @@ export default async function DashboardPage() {
           </ul>
         ) : null}
       </section>
-    </main>
+    </section>
   );
 }
 
