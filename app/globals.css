@@ -392,14 +392,6 @@ img {
   }
 }
 
-#addButton {
-  anchor-name: --add-menu-btn;
-}
-
-#addMenu {
-  position-anchor: --add-menu-btn;
-}
-
 .dropdown[popover] {
   position: absolute;
   position-area: bottom;
