@@ -18,7 +18,7 @@ export default async function ConnectionDetailPage({
   const updates = await listUpdatesForParent(connection.id);
 
   return (
-    <main>
+    <section>
       <header className="page-header">
         <h1 className="page-header__title">Connection details</h1>
         <p className="page-header__subtitle">
@@ -160,7 +160,7 @@ export default async function ConnectionDetailPage({
           </div>
         </form>
       </section>
-    </main>
+    </section>
   );
 }
 

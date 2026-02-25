@@ -34,7 +34,7 @@ export default async function DashboardPage() {
         className="card"
         style={{ marginBottom: "1rem" }}
       >
-        <header className="card-header">
+        <header className="card__header">
           <h2 id="applications-summary-title" className="page-header__title">
             Applications
           </h2>
@@ -64,7 +64,7 @@ export default async function DashboardPage() {
         aria-labelledby="connections-summary-title"
         className="card"
       >
-        <header className="card-header">
+        <header className="card__header">
           <h2 id="connections-summary-title" className="page-header__title">
             Connection requests
           </h2>

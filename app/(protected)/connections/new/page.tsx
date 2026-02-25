@@ -2,7 +2,7 @@ import { createConnectionAction } from "./../actions";
 
 export default function NewConnectionPage() {
   return (
-    <main>
+    <section>
       <header className="page-header">
         <h1 className="page-header__title">Add connection request</h1>
         <p className="page-header__subtitle">
@@ -106,7 +106,7 @@ export default function NewConnectionPage() {
           </div>
         </form>
       </section>
-    </main>
+    </section>
   );
 }
 

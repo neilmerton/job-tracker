@@ -2,7 +2,7 @@ import { createJobAction } from "./../actions";
 
 export default function NewJobPage() {
   return (
-    <main>
+    <section>
       <header className="page-header">
         <h1 className="page-header__title">Add application</h1>
         <p className="page-header__subtitle">
@@ -175,7 +175,7 @@ export default function NewJobPage() {
           </div>
         </form>
       </section>
-    </main>
+    </section>
   );
 }
 

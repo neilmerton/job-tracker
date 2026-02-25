@@ -5,7 +5,7 @@ export default async function InstancePage() {
   const instance = await getInstance();
 
   return (
-    <main>
+    <section>
       <header className="page-header">
         <h1 className="page-header__title">Instance settings</h1>
         <p className="page-header__subtitle">
@@ -24,7 +24,7 @@ export default async function InstancePage() {
           </p>
         </div>
       )}
-    </main>
+    </section>
   );
 }
 
