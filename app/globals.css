@@ -204,7 +204,7 @@ img {
     "description action";
 }
 
-.page-header a.button {
+.page-header .button {
   grid-area: action;
 }
 
@@ -389,5 +389,30 @@ img {
   .button:focus-visible:not(:disabled) {
     box-shadow: var(--shadow-soft);
     transform: translateY(-1px);
+  }
+}
+
+#addButton {
+  anchor-name: --add-menu-btn;
+}
+
+#addMenu {
+  position-anchor: --add-menu-btn;
+}
+
+.dropdown[popover] {
+  position: absolute;
+  position-area: bottom;
+  position-try-fallbacks: flip-block;
+  top: calc(anchor(bottom) + 5px);
+  right: anchor(right);
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.2s ease-out;
+
+  >ul {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-sm) 0;
   }
 }

@@ -1,0 +1,11 @@
+#addButton {
+  anchor-name: '--add-menu-btn';
+}
+
+#addMenu {
+  position-anchor: --add-menu-btn;
+  inset: auto;
+  bottom: calc(anchor(top) + 6px);
+  right: anchor(right);
+  margin: 0;
+}

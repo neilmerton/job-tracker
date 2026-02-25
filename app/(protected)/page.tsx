@@ -27,6 +27,21 @@ export default async function DashboardPage() {
         <p className="page-header__subtitle">
           High-level snapshot of your job applications and networking activity.
         </p>
+        <button className="button" id="addButton" popoverTarget="add-menu">Add</button>
+        <nav id="add-menu" className="dropdown" popover="" role="menu" aria-labelledby="addButton">
+          <ul className="menu" role="menu" aria-labelledby="addButton">
+            <li role="menuitem">
+              <Link href="/jobs/new" role="menuitem">
+                Application
+              </Link>
+            </li>
+            <li role="menuitem">
+              <Link href="/connections/new" role="menuitem">
+                Connection
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </header>
 
       <section
