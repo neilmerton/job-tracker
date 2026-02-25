@@ -13,6 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Job Tracker" />
+      </head>
       <body>{children}</body>
     </html>
   );

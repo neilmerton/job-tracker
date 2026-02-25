@@ -3,8 +3,8 @@
   --color-foreground: hsl(240, 0%, 9%);
   --color-surface: hsl(240, 0%, 96%);
   --color-border: hsl(240, 5%, 84%);
-  --color-accent: hsl(240, 83%, 53%);
-  --color-accent-muted: hsl(240, 63%, 63%);
+  --color-accent: hsl(243, 75%, 59%);
+  --color-accent-muted: hsl(243, 63%, 63%);
   --color-accent-text: hsl(240, 0%, 100%);
   --color-danger: hsl(0, 74%, 42%);
   --color-muted: hsl(240, 9%, 42%);
@@ -26,8 +26,8 @@
     --color-foreground: hsl(240, 13%, 91%);
     --color-surface: hsl(240, 84%, 5%);
     --color-border: hsl(240, 25%, 27%);
-    --color-accent: hsl(240, 73%, 53%);
-    --color-accent-muted: hsl(240, 83%, 63%);
+    --color-accent: hsl(243, 75%, 59%);
+    --color-accent-muted: hsl(243, 63%, 63%);
     --color-muted: hsl(240, 9%, 56%);
     --shadow-soft: 0 1px 2px hsla(240, 47%, 11%, 0.9),
       0 1px 3px hsla(240, 47%, 11%, 0.8);
