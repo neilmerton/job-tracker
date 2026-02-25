@@ -13,14 +13,14 @@ function Navigation() {
   return (
     <nav className="app-shell__nav" aria-label="Primary">
       <div className="app-shell__nav-inner">
-        <div>
+        <header>
           <div className="app-shell__brand">Job Tracker</div>
           {instance ? (
             <p className="form-help" style={{ marginTop: "0.25rem" }}>
               Signed in as <strong>{instance.name}</strong>
             </p>
           ) : null}
-        </div>
+        </header>
         <ul className="nav-list">
           <li>
             <Link
@@ -50,6 +50,10 @@ function Navigation() {
               Connections
             </Link>
           </li>
+        </ul>
+      </div>
+      <div className="app-shell__nav-inner">
+        <ul className="nav-list">
           <li>
             <Link
               href="/instance"
