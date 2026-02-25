@@ -1,5 +1,6 @@
 :root {
   --color-background: hsl(240, 0%, 100%);
+  --color-background-secondary: hsl(240, 0%, 80%);
   --color-foreground: hsl(240, 0%, 9%);
   --color-surface: hsl(240, 0%, 96%);
   --color-border: hsl(240, 5%, 84%);
@@ -23,6 +24,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: hsl(240, 84%, 5%);
+    --color-background-secondary: hsl(240, 84%, 20%);
     --color-foreground: hsl(240, 13%, 91%);
     --color-surface: hsl(240, 84%, 5%);
     --color-border: hsl(240, 25%, 27%);
@@ -193,7 +195,17 @@ img {
 }
 
 .page-header {
+  align-items: center;
   margin-bottom: var(--space-xl);
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas:
+    "title action"
+    "description action";
+}
+
+.page-header a.button {
+  grid-area: action;
 }
 
 .page-header__title {
@@ -240,8 +252,8 @@ img {
 }
 
 .button--secondary {
-  background-color: transparent;
-  color: var(--color-accent);
+  background-color: var(--color-background-secondary);
+  color: var(--color-foreground);
 }
 
 .button--danger {
