@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createJob, createUpdate } from "@/lib/repositories";
+import { createJob, createUpdate, updateJobStatus } from "@/lib/repositories";
 
 export async function createJobAction(formData: FormData) {
   const dateApplied = String(formData.get("date_applied") ?? "").trim();
@@ -53,6 +53,12 @@ export async function createJobUpdateAction(jobId: string, formData: FormData) {
     date: effectiveDate,
     description,
   });
+
+  const status = String(formData.get("status") ?? "").trim();
+
+  if (status) {
+    await updateJobStatus(jobId, status);
+  }
 
   redirect(`/jobs/${jobId}`);
 }

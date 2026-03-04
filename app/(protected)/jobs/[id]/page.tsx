@@ -10,7 +10,7 @@ export default async function JobDetailPage({
 }>) {
   const { id } = await params;
   const job = await getJobById(id);
-  
+
   if (!job) {
     notFound();
   }
@@ -175,6 +175,22 @@ export default async function JobDetailPage({
                 className="form-textarea"
                 required
               />
+            </div>
+            <div className="form-field">
+              <label className="form-label" htmlFor="update_status">
+                Status
+              </label>
+              <select
+                id="update_status"
+                name="status"
+                className="form-select"
+                required
+              >
+                <option value="applied">Applied</option>
+                <option value="interview">Interview</option>
+                <option value="offer">Offer</option>
+                <option value="rejected">Rejected</option>
+              </select>
             </div>
           </fieldset>
           <div>
