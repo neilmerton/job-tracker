@@ -84,14 +84,14 @@ A streamlined, Next.js-based web application for tracking job applications and n
 ## 📝 Data Handling
 
 ### 1. Server Actions (`actions.ts`)
-Server Actions (e.g., your `app/(protected)/jobs/actions.ts`) are the standard way to handle UI-driven mutations originating from within your Next.js application itself.
+Server Actions (e.g. `app/(protected)/jobs/actions.ts`) are the standard way to handle UI-driven mutations originating from within your Next.js application itself.
 
 - **Purpose:** Handling form submissions, button clicks, and updating data directly from your React components.
 - **Why use them here:** They integrate seamlessly with Next.js features. As seen in your `actions.ts` file, you can directly call database functions like `createJob` and immediately use Next.js navigation utilities like `redirect('/jobs/...')` or `revalidatePath(...)` without needing to manually author a fetch request on the client side, serialize the data, or manage API endpoints.
 - **Security:** They act as hidden API endpoints that Next.js automatically secures and binds to your application's UI.
 
-### 2. Route Handlers (app/api/...)
-Route Handlers (e.g., your `app/api/instance/register/route.ts`) are traditional RESTful API endpoints.
+### 2. Route Handlers (`app/api/...`)
+Route Handlers (e.g. `app/api/instance/register/route.ts`) are traditional RESTful API endpoints.
 
 - **Purpose:** They are meant to be consumed by **external clients**, third-party services, webhooks, or mobile applications.
 - **Why use them here:** Looking at your `instance/register`, `instance/delete`, and `instance/validate` routes, these are designed for external or programmatic access. For example, if another service needs to register an "instance" or validate a secret via a standard HTTP request, it will hit these REST endpoints. Server Actions cannot be easily consumed by an external script or third-party service, so Route Handlers fill that gap.
