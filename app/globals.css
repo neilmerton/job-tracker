@@ -382,29 +382,47 @@ img {
   .nav-link,
   .card {
     transition: background-color 150ms ease-out, border-color 150ms ease-out,
-      box-shadow 150ms ease-out, transform 150ms ease-out;
+      box-shadow 150ms ease-out;
   }
 
   .button:hover:not(:disabled),
   .button:focus-visible:not(:disabled) {
     box-shadow: var(--shadow-soft);
-    transform: translateY(-1px);
   }
 }
 
 .dropdown[popover] {
-  position: absolute;
+  background-color: var(--color-surface);
+  border: 0 solid transparent;
   position-area: bottom;
   position-try-fallbacks: flip-block;
-  top: calc(anchor(bottom) + 5px);
+  top: calc(anchor(bottom) + var(--space-sm));
   right: anchor(right);
-  opacity: 1;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
   transform: translateY(0);
-  transition: all 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+
+  &:popover-open {
+    opacity: 1;
+  }
 
   >ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
     list-style: none;
     margin: 0;
-    padding: var(--space-sm) 0;
+    padding: 0;
+  }
+
+  li>a {
+    background-color: var(--color-accent);
+    border-radius: var(--radius-md);
+    color: var(--color-accent-text);
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    text-decoration: none;
   }
 }

@@ -27,16 +27,19 @@ export default async function DashboardPage() {
         <p className="page-header__subtitle">
           High-level snapshot of your job applications and networking activity.
         </p>
-        <button className="button" id="addButton" popoverTarget="add-menu" style={{ anchorName: "--add-menu-btn" }}>Add</button>
+        <button className="button" id="addButton" popoverTarget="add-menu" style={{ anchorName: "--add-menu-btn" }}>
+          <span className="label">Add</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-6-6h12z"/></svg>
+        </button>
         <nav id="add-menu" className="dropdown" popover="" style={{ positionAnchor: "--add-menu-btn" }} role="menu" aria-labelledby="addButton">
           <ul className="menu" role="menu" aria-labelledby="addButton">
             <li role="menuitem">
-              <Link href="/jobs/new" role="menuitem">
+              <Link href="/jobs/new">
                 Application
               </Link>
             </li>
             <li role="menuitem">
-              <Link href="/connections/new" role="menuitem">
+              <Link href="/connections/new">
                 Connection
               </Link>
             </li>
@@ -52,9 +55,6 @@ export default async function DashboardPage() {
           <h2 id="applications-summary-title" className="page-header__title">
             Applications
           </h2>
-          <Link href="/jobs/new" className="button">
-            Add application
-          </Link>
         </header>
         <p className="form-help">
           You have {jobs.length} tracked application
@@ -79,9 +79,6 @@ export default async function DashboardPage() {
           <h2 id="connections-summary-title" className="page-header__title">
             Connection requests
           </h2>
-          <Link href="/connections/new" className="button">
-            Add connection
-          </Link>
         </header>
         <p className="form-help">
           You have {connections.length} tracked connection request
