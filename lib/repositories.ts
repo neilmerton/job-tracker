@@ -297,6 +297,29 @@ export async function updateJob(
   return (data as Job | null) ?? null;
 }
 
+export async function updateJobStatus(id: string, status: string): Promise<Job | null> {
+  const current = await getJobById(id);
+  if (!current) return null;
+
+  const supabase = getSupabaseClient();
+
+  const { data, error } = await supabase
+    .from("jobs")
+    .update({
+      status,
+    })
+    .eq("id", id)
+    .eq("instance_id", INSTANCE_ID)
+    .select("*")
+    .maybeSingle();
+
+  if (error) {
+    throw error;
+  }
+
+  return (data as Job | null) ?? null;
+}
+
 export async function deleteJob(id: string): Promise<void> {
   const supabase = getSupabaseClient();
 
