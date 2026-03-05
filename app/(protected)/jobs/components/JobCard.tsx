@@ -158,25 +158,6 @@ export default function JobCard({ job }: { job: Job }) {
                   required
                 />
               </div>
-              <div className="form-field">
-                <label className="form-label" htmlFor={`update_status_${job.id}`} style={{ fontSize: "0.85rem" }}>
-                  Update Status?
-                </label>
-                <select
-                  id={`update_status_${job.id}`}
-                  name="status"
-                  className="form-select"
-                  style={{ padding: "0.25rem", fontSize: "0.85rem" }}
-                  defaultValue=""
-                >
-                  <option value="">No change</option>
-                  <option value="applied">Applied</option>
-                  <option value="interview">Interview</option>
-                  <option value="offer">Offer</option>
-                  <option value="rejected">Rejected</option>
-                </select>
-                <span className="form-help" style={{ fontSize: "0.75rem" }}>Board won't reflect status change until refreshed/collapsed if changed here.</span>
-              </div>
               <button type="submit" className="button" style={{ padding: "0.25rem 0.5rem", fontSize: "0.85rem", marginTop: "0.5rem" }}>
                 Save update
               </button>
