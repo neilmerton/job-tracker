@@ -21,6 +21,7 @@ A streamlined, Next.js-based web application for tracking job applications and n
 
 - **Frontend Framework**: [Next.js](https://nextjs.org/) (App Router)
 - **UI Library**: [React](https://react.dev/)
+- **Drag & Drop**: [pragmatic-drag-and-drop](https://atlassian.design/components/pragmatic-drag-and-drop/about)
 - **Language**: TypeScript
 - **Database & Backend**: [Supabase](https://supabase.com/) (PostgreSQL & Supabase JS client)
 - **Styling**: Standard CSS with Next.js specific optimizations
