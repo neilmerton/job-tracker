@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createJob, createUpdate, updateJobStatus } from "@/lib/repositories";
 
@@ -61,5 +62,10 @@ export async function createJobUpdateAction(jobId: string, formData: FormData) {
   }
 
   redirect(`/jobs/${jobId}`);
+}
+
+export async function updateJobStatusOnlyAction(jobId: string, status: string) {
+  await updateJobStatus(jobId, status);
+  revalidatePath("/jobs");
 }
 

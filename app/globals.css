@@ -426,3 +426,87 @@ img {
     text-decoration: none;
   }
 }
+
+/* Kanban Board Styles */
+.board {
+  display: flex;
+  gap: var(--space-lg);
+  overflow-x: auto;
+  padding-bottom: var(--space-md);
+  min-height: 60vh;
+}
+
+.board-column {
+  background-color: var(--color-background-secondary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  width: 300px;
+  max-width: 300px;
+  padding: var(--space-md);
+  flex-shrink: 0;
+}
+
+.board-column--drag-over {
+  background-color: var(--color-border);
+}
+
+.board-column__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-md) 0;
+  padding: 0 var(--space-xs);
+  text-transform: capitalize;
+}
+
+.board-column__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex: 1;
+}
+
+.job-card {
+  cursor: grab;
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  margin-top: 0;
+}
+
+.job-card:active {
+  cursor: grabbing;
+}
+
+.job-card--dragging {
+  opacity: 0.5;
+}
+
+.job-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-xs);
+}
+
+.job-card__role {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.job-card__date {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.job-card__company {
+  font-size: 0.875rem;
+  color: var(--color-foreground);
+  margin-bottom: var(--space-md);
+}
+
+.job-card__footer {
+  display: flex;
+  justify-content: flex-end;
+}
