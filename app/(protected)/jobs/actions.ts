@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createJob, createUpdate, updateJobStatus } from "@/lib/repositories";
+import { createJob, createUpdate, listUpdatesForParent, updateJobStatus } from "@/lib/repositories";
 
 export async function createJobAction(formData: FormData) {
   const dateApplied = String(formData.get("date_applied") ?? "").trim();
@@ -67,5 +67,36 @@ export async function createJobUpdateAction(jobId: string, formData: FormData) {
 export async function updateJobStatusOnlyAction(jobId: string, status: string) {
   await updateJobStatus(jobId, status);
   revalidatePath("/jobs");
+}
+
+export async function getJobUpdatesAction(jobId: string) {
+  const updates = await listUpdatesForParent(jobId);
+  return updates;
+}
+
+export async function addJobUpdateBoardAction(jobId: string, formData: FormData) {
+  const description = String(formData.get("description") ?? "").trim();
+  const date = String(formData.get("date") ?? "").trim();
+  const status = String(formData.get("status") ?? "").trim();
+
+  if (!description) {
+    throw new Error("Update description is required.");
+  }
+
+  const effectiveDate = date || new Date().toISOString().slice(0, 10);
+
+  const update = await createUpdate({
+    type: "job",
+    parentId: jobId,
+    date: effectiveDate,
+    description,
+  });
+
+  if (status) {
+    await updateJobStatus(jobId, status);
+  }
+
+  revalidatePath("/jobs");
+  return update;
 }
 

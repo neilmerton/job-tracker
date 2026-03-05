@@ -83,7 +83,6 @@ img {
 
 .app-shell__main {
   grid-area: app-main;
-
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -136,7 +135,6 @@ img {
 
 .app-shell__content {
   margin: 0 auto;
-  max-width: 60rem;
   width: 100%;
 }
 
@@ -472,9 +470,22 @@ img {
   padding: var(--space-md);
   background-color: var(--color-surface);
   margin-top: 0;
+  transition: all 0.2s ease-in-out;
 }
 
-.job-card:active {
+.job-card--expanded {
+  cursor: default;
+  /* Disable dragging cursor when expanded */
+}
+
+.job-card__details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+.job-card:active:not(.job-card--expanded) {
   cursor: grabbing;
 }
 
