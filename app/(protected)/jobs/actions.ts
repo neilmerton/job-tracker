@@ -35,7 +35,7 @@ export async function createJobAction(formData: FormData) {
     status,
   });
 
-  redirect(`/jobs/${job.id}`);
+  redirect(`/jobs`);
 }
 
 export async function createJobUpdateAction(jobId: string, formData: FormData) {

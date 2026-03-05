@@ -7,7 +7,7 @@ import JobCard from "./JobCard";
 import { Job } from "@/lib/repositories";
 import { updateJobStatusOnlyAction } from "../actions";
 
-const COLUMNS = ["applied", "interview", "offer", "rejected"];
+const COLUMNS = ["applied", "interviewing", "offer", "rejected"];
 
 export default function Board({ initialJobs }: { initialJobs: Job[] }) {
   const [jobs, setJobs] = useState<Job[]>(initialJobs);

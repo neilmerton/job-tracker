@@ -106,6 +106,9 @@ export default function JobCard({ job }: { job: Job }) {
             </div>
           </dl>
 
+          <h4 style={{ margin: "1rem 0 0.5rem 0", fontSize: "1rem" }}>Description</h4>
+          <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--color-muted)", whiteSpace: "pre-wrap" }}>{job.description}</p>
+
           <hr style={{ borderColor: "var(--color-border)", margin: "1rem 0" }} />
 
           <h4 style={{ margin: "0 0 0.5rem 0", fontSize: "1rem" }}>Updates</h4>
@@ -169,11 +172,8 @@ export default function JobCard({ job }: { job: Job }) {
 
       <div className="job-card__footer" style={{ marginTop: "1rem", gap: "0.5rem" }}>
         <button onClick={handleExpandToggle} className="button button--secondary" style={{ flex: 1 }}>
-          {isExpanded ? "Collapse" : "Expand"}
+          {isExpanded ? "Hide" : "Show"} Details
         </button>
-        <Link href={`/jobs/${job.id}`} className="button button--secondary">
-          ✏️
-        </Link>
       </div>
     </div>
   );
