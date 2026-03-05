@@ -6,7 +6,7 @@ import { useInstance } from "@/components/InstanceGuard";
 
 const SECRET_STORAGE_KEY = "job-tracker-secret";
 
-export default function InstanceSettings(): JSX.Element {
+export default function InstanceSettings() {
   const { instance, setInstance } = useInstance();
   const router = useRouter();
   const [updateError, setUpdateError] = useState<string | null>(null);
