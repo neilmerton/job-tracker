@@ -1,6 +1,7 @@
-import Link from "next/link";
+import Drawer from "@/components/Drawer";
 import { listJobs } from "@/lib/repositories";
 import Board from "./components/Board";
+import JobFormAdd from "./components/JobFormAdd";
 
 export default async function JobsPage() {
   const jobs = await listJobs();
@@ -12,9 +13,13 @@ export default async function JobsPage() {
         <p className="page-header__subtitle">
           View and manage job applications you have sent.
         </p>
-        <Link href="/jobs/new" className="button">
-          Add application
-        </Link>
+        <Drawer
+          id="add-job"
+          buttonLabel="Add application"
+          drawerTitle="New application"
+        >
+          <JobFormAdd />
+        </Drawer>
       </header>
 
       {jobs.length === 0 ? (
