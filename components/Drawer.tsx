@@ -18,7 +18,7 @@ export default function Drawer({
       <button
         id={`${id}-trigger`}
         className="button"
-        {...{ commandFor: id, command: "show-modal" }}
+        {...{ commandfor: id, command: "show-modal" }}
       >
         {buttonLabel}
       </button>
@@ -28,7 +28,7 @@ export default function Drawer({
           <h2 className="drawer__title">{drawerTitle}</h2>
           <button
             className="button button--secondary"
-            {...{ commandFor: id, command: "close" }}
+            {...{ commandfor: id, command: "close" }}
           >
             Close
           </button>
