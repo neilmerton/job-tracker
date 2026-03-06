@@ -543,9 +543,14 @@ img {
 }
 
 .drawer__header {
+  align-items: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-bottom: var(--space-lg);
+}
+
+.drawer__title {
+  margin: 0;
 }
 
 .drawer__content {
