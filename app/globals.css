@@ -524,6 +524,7 @@ img {
 
 /* Drawer Styles */
 dialog.drawer {
+  --drawer-header-height: 88px;
   --drawer-width: 640px;
   --transition-speed: 300ms;
   background-color: var(--color-surface);
@@ -533,25 +534,26 @@ dialog.drawer {
   box-shadow: var(--shadow-soft);
   box-sizing: border-box;
   color: var(--color-foreground);
+  display: grid;
+  grid-template-rows: auto 1fr;
   height: 100dvh;
   margin-left: auto;
   margin-right: 0;
   max-height: none;
   max-width: var(--drawer-width);
+  opacity: 0;
   padding: 0;
   transform: translateX(100%);
   transition:
-    transform var(--transition-speed) ease-in-out,
     display var(--transition-speed) allow-discrete,
-    overlay var(--transition-speed) allow-discrete;
+    opacity var(--transition-speed) ease,
+    overlay var(--transition-speed) allow-discrete,
+    transform var(--transition-speed) ease-in-out;
   width: 100%;
 }
 
-dialog.drawer>* {
-  padding: var(--space-xl);
-}
-
 dialog.drawer[open] {
+  opacity: 1;
   transform: translateX(0);
 }
 
@@ -574,28 +576,6 @@ dialog.drawer::backdrop {
   }
 }
 
-.drawer-content {
-  background: var(--color-foreground);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 1.5rem;
-}
-
-.drawer__header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.drawer__title {
-  margin: 0;
-}
-
-.drawer__content {
-  margin-bottom: var(--space-lg);
-}
-
 @media (min-width: 640px) {
   dialog.drawer {
     border-radius: var(--radius-lg) 0 0 var(--radius-lg);
@@ -604,4 +584,42 @@ dialog.drawer::backdrop {
     height: 100dvh;
     max-width: 640px;
   }
+}
+
+.drawer__header {
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  height: var(--drawer-header-height);
+  justify-content: space-between;
+  padding-inline: var(--space-xl);
+}
+
+.drawer__title {
+  margin: 0;
+}
+
+.drawer__content {
+  padding: var(--space-xl);
+}
+
+.drawer__content>form {
+  display: flex;
+  height: calc(100dvh - calc(var(--drawer-header-height) * 2));
+}
+
+.drawer__content>form>section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--space-md);
+  overflow-y: auto;
+}
+
+.drawer__content>form>footer {
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+  height: var(--drawer-header-height);
 }
