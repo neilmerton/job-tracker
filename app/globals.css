@@ -523,7 +523,7 @@ img {
 }
 
 /* Drawer Styles */
-.drawer {
+/* .drawer {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -546,13 +546,96 @@ img {
 }
 
 .drawer::backdrop {
-  backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0);
+  transition:
+    background-color var(--transition-speed) ease,
+    display var(--transition-speed) allow-discrete,
+    overlay var(--transition-speed) allow-discrete;
 }
 
-.drawer[open] {
-  opacity: 1;
+.drawer[open]::backdrop {
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@starting-style {
+  dialog.drawer[open] {
+    transform: translateX(100%);
+  }
+
+  dialog.drawer[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+  }
+} */
+
+dialog.drawer {
+  --drawer-width: 640px;
+  --transition-speed: 300ms;
+  /* Positioning and Sizing */
+  margin-right: 0;
+  margin-left: auto;
+  width: 100%;
+  max-width: var(--drawer-width);
+  height: 100dvh;
+  max-height: none;
+  border: none;
+  padding: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  box-shadow: var(--shadow-soft);
+  box-sizing: border-box;
+  color: var(--color-foreground);
+
+  /* Animation Setup */
+  transform: translateX(100%);
+  transition:
+    transform var(--transition-speed) ease-in-out,
+    display var(--transition-speed) allow-discrete,
+    overlay var(--transition-speed) allow-discrete;
+}
+
+dialog.drawer>* {
+  padding: var(--space-xl);
+}
+
+/* State when the dialog is open */
+dialog.drawer[open] {
   transform: translateX(0);
+}
+
+/* Backdrop styling */
+dialog.drawer::backdrop {
+  background-color: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(2px);
+  transition:
+    background-color var(--transition-speed) ease,
+    display var(--transition-speed) allow-discrete,
+    overlay var(--transition-speed) allow-discrete;
+}
+
+/* dialog.drawer[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+} */
+
+/* Internal Layout */
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  padding: 1.5rem;
+}
+
+/* Starting style for the entry animation */
+@starting-style {
+  dialog.drawer[open] {
+    transform: translateX(100%);
+  }
+
+  dialog.drawer[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+  }
 }
 
 .drawer__header {
@@ -571,9 +654,8 @@ img {
 }
 
 @media (min-width: 640px) {
-  .drawer {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  dialog.drawer {
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
     height: auto;
     margin-left: auto;
     height: 100dvh;
