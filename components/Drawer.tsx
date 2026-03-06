@@ -33,9 +33,9 @@ export default function Drawer({
             Close
           </button>
         </header>
-        <div className="drawer__content">
+        <section className="drawer__content">
           {children}
-        </div>
+        </section>
       </dialog>
     </>
   );
