@@ -1,11 +1,10 @@
-import * as React from "react";
+import { ReactNode } from "react";
 
 interface DrawerProps {
   id: string;
-  buttonLabel: React.ReactNode;
-  drawerTitle: React.ReactNode;
-  children: React.ReactNode;
-  actions?: React.ReactNode;
+  buttonLabel: ReactNode;
+  drawerTitle: ReactNode;
+  children: ReactNode;
 }
 
 export default function Drawer({
@@ -13,7 +12,6 @@ export default function Drawer({
   buttonLabel,
   drawerTitle,
   children,
-  actions,
 }: DrawerProps) {
   return (
     <>
@@ -26,7 +24,7 @@ export default function Drawer({
       </button>
 
       <dialog id={id} className="drawer">
-        <div className="drawer__header">
+        <header className="drawer__header">
           <h2 className="drawer__title">{drawerTitle}</h2>
           <button
             className="button button--secondary"
@@ -34,15 +32,10 @@ export default function Drawer({
           >
             Close
           </button>
-        </div>
+        </header>
         <div className="drawer__content">
           {children}
         </div>
-        {actions && (
-          <div className="drawer__actions">
-            {actions}
-          </div>
-        )}
       </dialog>
     </>
   );
