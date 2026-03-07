@@ -672,4 +672,80 @@ dialog.drawer::backdrop {
   justify-content: flex-end;
   height: var(--drawer-header-height);
   padding-inline: var(--space-xl);
+}/* Connections Grid Styles */
+.connections-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .connections-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+.connection-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    margin-top: 0;
+}
+
+.connection-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.connection-card__contact {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-xs);
+    line-height: 1.2;
+}
+
+.connection-card__company {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.connection-card__details {
+    display: grid;
+    gap: var(--space-sm);
+    margin: 0 0 var(--space-lg);
+    flex-grow: 1;
+}
+
+.connection-card__details .form-field {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.connection-card__details dt {
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}
+
+.connection-card__details dd {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
+    text-align: right;
+}
+
+.connection-card__actions {
+    display: flex;
+    justify-content: stretch;
+    margin-top: auto;
+}
+
+.connection-card__actions .button {
+    width: 100%;
 }
