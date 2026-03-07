@@ -77,9 +77,12 @@ A streamlined, Next.js-based web application for tracking job applications and n
   - `(protected)/`: Contains the core authenticated views (Dashboard, Jobs, Connections).
   - `(public)/`: Contains public routes like the instance registration form.
   - `api/`: Backend API routes for instance validation and other logic.
-- `components/`: Reusable React components, including `InstanceGuard` for authentication.
+- `components/`: Reusable React components, including `InstanceGuard` for authentication and shared layout components like `PageHeader` and `SummarySection`.
 - `lib/`: Core logic and configurations.
-  - `repositories.ts`: Data access layer handling interaction with Supabase.
+  - `repositories/`: Data access layer, with individual files per entity (e.g., `jobRepository.ts`) enforcing the Single Responsibility Principle.
+  - `services/`: Business logic orchestration layer handling cross-repository interactions.
+  - `types/`: Shared TypeScript type definitions mapping to database schemas.
+  - `utils/`: Reusable standalone functions, such as data processing logic.
   - `supabaseClient.ts`: Initialization of the Supabase client.
 
 ## 📝 Data Handling
