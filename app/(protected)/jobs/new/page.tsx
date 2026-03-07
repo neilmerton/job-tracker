@@ -1,3 +1,4 @@
+import Link from "next/link";
 import JobFormAdd from "../components/JobFormAdd";
 
 export default function NewJobPage() {
@@ -8,6 +9,9 @@ export default function NewJobPage() {
         <p className="page-header__subtitle">
           Record the details of a job application you have sent.
         </p>
+        <Link href="/jobs" className="button">
+          Cancel
+        </Link>
       </header>
 
       <section className="card" aria-labelledby="new-job-title">

@@ -8,7 +8,7 @@ export default async function ConnectionsPage() {
   return (
     <section>
       <header className="page-header">
-        <h1 className="page-header__title">Connection requests</h1>
+        <h1 className="page-header__title">Connections</h1>
         <p className="page-header__subtitle">
           Track outreach to recruiters and other contacts.
         </p>

@@ -29,7 +29,7 @@ export default async function DashboardPage() {
         </p>
         <button className="button" id="addButton" popoverTarget="add-menu" style={{ anchorName: "--add-menu-btn" }}>
           <span className="label">Add</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-6-6h12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="m12 16l-6-6h12z" /></svg>
         </button>
         <nav id="add-menu" className="dropdown" popover="" style={{ positionAnchor: "--add-menu-btn" }} role="menu" aria-labelledby="addButton">
           <ul className="menu" role="menu" aria-labelledby="addButton">
@@ -77,7 +77,7 @@ export default async function DashboardPage() {
       <section aria-labelledby="connections-summary-title">
         <header className="card__header">
           <h2 id="connections-summary-title" className="page-header__title">
-            Connection requests
+            Connections
           </h2>
         </header>
         <p className="form-help">
