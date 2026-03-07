@@ -47,9 +47,17 @@ export default function JobCard({ job }: { job: Job }) {
     }
   };
 
+  const [updateError, setUpdateError] = useState<string | null>(null);
+
   const handleUpdateSubmit = async (formData: FormData) => {
+    setUpdateError(null);
     try {
-      const newUpdate = await addJobUpdateBoardAction(job.id, formData);
+      const response = await addJobUpdateBoardAction(job.id, null, formData);
+      if (response && 'error' in response) {
+        setUpdateError(response.error as string);
+        return;
+      }
+      const newUpdate = response as Update;
       setUpdates((prev) => [newUpdate, ...prev]);
 
       // Clear form
@@ -58,6 +66,7 @@ export default function JobCard({ job }: { job: Job }) {
 
     } catch (error) {
       console.error("Failed to add update:", error);
+      setUpdateError("An unexpected error occurred.");
     }
   };
 
@@ -136,6 +145,11 @@ export default function JobCard({ job }: { job: Job }) {
           >
             <fieldset className="form" style={{ padding: "0.5rem", border: "1px solid var(--color-border)", borderRadius: "var(--radius-md)" }}>
               <legend className="form-label" style={{ fontSize: "0.85rem", padding: "0 0.25rem" }}>Add update</legend>
+              {updateError && (
+                <div style={{ color: "red", marginBottom: "0.5rem", padding: "0.5rem", border: "1px solid red", borderRadius: "4px", fontSize: "0.85rem" }}>
+                  {updateError}
+                </div>
+              )}
               <div className="form-field">
                 <label className="form-label" htmlFor={`update_date_${job.id}`} style={{ fontSize: "0.85rem" }}>
                   Date

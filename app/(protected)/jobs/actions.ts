@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createJob, createUpdate, listUpdatesForParent, updateJobStatus } from "@/lib/repositories";
 
-export async function createJobAction(formData: FormData) {
+export async function createJobAction(prevState: any, formData: FormData) {
   const dateApplied = String(formData.get("date_applied") ?? "").trim();
   const role = String(formData.get("role") ?? "").trim();
   const description = String(formData.get("description") ?? "").trim();
@@ -18,7 +18,7 @@ export async function createJobAction(formData: FormData) {
   const status = String(formData.get("status") ?? "").trim();
 
   if (!dateApplied || !role || !jobType || !source || !company) {
-    throw new Error("Missing required fields for job application.");
+    return { error: "Missing required fields for job application." };
   }
 
   const job = await createJob({
@@ -38,12 +38,12 @@ export async function createJobAction(formData: FormData) {
   redirect(`/jobs`);
 }
 
-export async function createJobUpdateAction(jobId: string, formData: FormData) {
+export async function createJobUpdateAction(jobId: string, prevState: any, formData: FormData) {
   const description = String(formData.get("description") ?? "").trim();
   const date = String(formData.get("date") ?? "").trim();
 
   if (!description) {
-    throw new Error("Update description is required.");
+    return { error: "Update description is required." };
   }
 
   const effectiveDate = date || new Date().toISOString().slice(0, 10);
@@ -74,13 +74,13 @@ export async function getJobUpdatesAction(jobId: string) {
   return updates;
 }
 
-export async function addJobUpdateBoardAction(jobId: string, formData: FormData) {
+export async function addJobUpdateBoardAction(jobId: string, prevState: any, formData: FormData) {
   const description = String(formData.get("description") ?? "").trim();
   const date = String(formData.get("date") ?? "").trim();
   const status = String(formData.get("status") ?? "").trim();
 
   if (!description) {
-    throw new Error("Update description is required.");
+    return { error: "Update description is required." };
   }
 
   const effectiveDate = date || new Date().toISOString().slice(0, 10);

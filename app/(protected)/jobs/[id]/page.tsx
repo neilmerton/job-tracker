@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { createJobUpdateAction } from "./../actions";
+import JobUpdateForm from "../components/JobUpdateForm";
 import { getJobById, listUpdatesForParent } from "@/lib/repositories";
 
 export default async function JobDetailPage({
@@ -146,59 +146,7 @@ export default async function JobDetailPage({
           </ol>
         )}
 
-        <form
-          className="form"
-          action={createJobUpdateAction.bind(null, job.id)}
-          style={{ marginTop: "1rem" }}
-        >
-          <fieldset className="form">
-            <legend className="form-label">Add update</legend>
-            <div className="form-field">
-              <label className="form-label" htmlFor="update_date">
-                Date
-              </label>
-              <input
-                id="update_date"
-                name="date"
-                type="date"
-                className="form-input"
-                defaultValue={new Date().toISOString().slice(0, 10)}
-              />
-            </div>
-            <div className="form-field">
-              <label className="form-label" htmlFor="update_description">
-                Description
-              </label>
-              <textarea
-                id="update_description"
-                name="description"
-                className="form-textarea"
-                required
-              />
-            </div>
-            <div className="form-field">
-              <label className="form-label" htmlFor="update_status">
-                Status
-              </label>
-              <select
-                id="update_status"
-                name="status"
-                className="form-select"
-                required
-              >
-                <option value="applied">Applied</option>
-                <option value="interview">Interview</option>
-                <option value="offer">Offer</option>
-                <option value="rejected">Rejected</option>
-              </select>
-            </div>
-          </fieldset>
-          <div>
-            <button type="submit" className="button">
-              Add update
-            </button>
-          </div>
-        </form>
+        <JobUpdateForm jobId={job.id} />
       </section>
     </section>
   );
