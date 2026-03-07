@@ -2,14 +2,14 @@
 
 import { useActionState } from "react";
 import { createJobAction } from "../actions";
-import ErrorMessage from "@/components/ErrorMessage";
+import Message from "@/components/Message";
 
 export default function NewJobForm() {
   const [state, formAction] = useActionState(createJobAction, null);
 
   return (
     <form className="form" action={formAction}>
-      <ErrorMessage error={state?.error} />
+      <Message message={state?.error} type="error" />
       <section>
         <fieldset className="form">
           <legend className="form-label">Job</legend>

@@ -2,10 +2,9 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 import { draggable } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
-import Link from "next/link";
 import { Job, Update } from "@/lib/repositories";
 import { getJobUpdatesAction, addJobUpdateBoardAction } from "../actions";
-import ErrorMessage from "@/components/ErrorMessage";
+import Message from "@/components/Message";
 
 export default function JobCard({ job }: { job: Job }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -146,7 +145,7 @@ export default function JobCard({ job }: { job: Job }) {
           >
             <fieldset className="form" style={{ padding: "0.5rem", border: "1px solid var(--color-border)", borderRadius: "var(--radius-md)" }}>
               <legend className="form-label" style={{ fontSize: "0.85rem", padding: "0 0.25rem" }}>Add update</legend>
-              <ErrorMessage error={updateError} />
+              <Message message={updateError} type="error" />
               <div className="form-field">
                 <label className="form-label" htmlFor={`update_date_${job.id}`} style={{ fontSize: "0.85rem" }}>
                   Date

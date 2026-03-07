@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { createJobUpdateAction } from "../actions";
-import ErrorMessage from "@/components/ErrorMessage";
+import Message from "@/components/Message";
 
 export default function JobUpdateForm({ jobId }: { jobId: string }) {
   const updateActionWithId = createJobUpdateAction.bind(null, jobId);
@@ -10,7 +10,7 @@ export default function JobUpdateForm({ jobId }: { jobId: string }) {
 
   return (
     <form className="form" action={formAction} style={{ marginTop: "1rem" }}>
-      <ErrorMessage error={state?.error} />
+      <Message message={state?.error} type="error" />
       <fieldset className="form">
         <legend className="form-label">Add update</legend>
         <div className="form-field">
