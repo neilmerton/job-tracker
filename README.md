@@ -100,6 +100,20 @@ Route Handlers (e.g. `app/api/instance/register/route.ts`) are traditional RESTf
 - **Purpose:** They are meant to be consumed by **external clients**, third-party services, webhooks, or mobile applications.
 - **Why use them here:** Looking at your `instance/register`, `instance/delete`, and `instance/validate` routes, these are designed for external or programmatic access. For example, if another service needs to register an "instance" or validate a secret via a standard HTTP request, it will hit these REST endpoints. Server Actions cannot be easily consumed by an external script or third-party service, so Route Handlers fill that gap.
 
+## 🧪 Unit Testing
+
+This project uses [Vitest](https://vitest.dev/) alongside [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for its incredibly fast, Vite-powered test runner capabilities configured specifically for this Next.js app.
+
+To run the unit tests locally:
+
+```bash
+npm run test
+# or
+pnpm test
+```
+
+Currently, tests focus on providing coverage for pure utility functions (like `lib/utils/dataProcessing.ts`) and abstract React UI components (like `PageHeader` and `SummarySection`).
+
 ## 🚢 Deployment
 
 The easiest way to deploy this Next.js app is to use the [Vercel Platform](https://vercel.com/new). Make sure to add your Supabase connection strings to the Vercel Environment Variables.
