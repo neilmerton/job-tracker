@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { createConnection, createUpdate } from "@/lib/repositories";
 
-export async function createConnectionAction(formData: FormData) {
+export async function createConnectionAction(prevState: any, formData: FormData) {
   const dateRequested = String(formData.get("date_requested") ?? "").trim();
   const company = String(formData.get("company") ?? "").trim();
   const contactName = String(formData.get("contact_name") ?? "").trim();
@@ -14,7 +14,7 @@ export async function createConnectionAction(formData: FormData) {
   const status = String(formData.get("status") ?? "").trim();
 
   if (!dateRequested || !company || !status) {
-    throw new Error("Missing required fields for connection request.");
+    return { error: "Missing required fields for connection request." };
   }
 
   const connection = await createConnection({
