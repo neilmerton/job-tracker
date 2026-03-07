@@ -9,6 +9,13 @@
   --color-accent-muted: hsl(243, 63%, 63%);
   --color-accent-text: hsl(240, 0%, 100%);
   --color-danger: hsl(0, 74%, 42%);
+  --color-danger-bg: hsla(0, 74%, 42%, 0.1);
+  --color-success: hsl(120, 100%, 25%);
+  --color-success-bg: hsla(120, 100%, 25%, 0.1);
+  --color-warning: hsl(43, 89%, 38%);
+  --color-warning-bg: hsla(43, 89%, 38%, 0.1);
+  --color-info: var(--color-foreground);
+  --color-info-bg: var(--color-background-secondary);
   --color-muted: hsl(240, 9%, 42%);
   --shadow-soft: 0 1px 2px hsla(240, 47%, 11%, 0.06),
     0 1px 3px hsla(240, 47%, 11%, 0.1);
@@ -32,6 +39,14 @@
     --color-border: hsl(240, 25%, 27%);
     --color-accent: hsl(243, 75%, 59%);
     --color-accent-muted: hsl(243, 63%, 63%);
+    --color-danger: hsl(0, 74%, 60%);
+    --color-danger-bg: hsla(0, 74%, 60%, 0.15);
+    --color-success: hsl(120, 60%, 45%);
+    --color-success-bg: hsla(120, 60%, 45%, 0.15);
+    --color-warning: hsl(43, 89%, 55%);
+    --color-warning-bg: hsla(43, 89%, 55%, 0.15);
+    --color-info: var(--color-foreground);
+    --color-info-bg: var(--color-background-secondary);
     --color-muted: hsl(240, 9%, 56%);
     --shadow-soft: 0 1px 2px hsla(240, 47%, 11%, 0.9),
       0 1px 3px hsla(240, 47%, 11%, 0.8);

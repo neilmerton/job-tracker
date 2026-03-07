@@ -16,24 +16,24 @@ export default function Message({ message, type = "info" }: MessageProps) {
 
   const typeStyles = {
     error: {
-      color: "red",
-      borderColor: "red",
-      backgroundColor: "rgba(255, 0, 0, 0.05)",
+      color: "var(--color-danger)",
+      borderColor: "var(--color-danger)",
+      backgroundColor: "var(--color-danger-bg)",
     },
     info: {
-      color: "var(--color-text)",
+      color: "var(--color-info)",
       borderColor: "var(--color-border)",
-      backgroundColor: "var(--color-bg-secondary)",
+      backgroundColor: "var(--color-info-bg)",
     },
     success: {
-      color: "green",
-      borderColor: "green",
-      backgroundColor: "rgba(0, 128, 0, 0.05)",
+      color: "var(--color-success)",
+      borderColor: "var(--color-success)",
+      backgroundColor: "var(--color-success-bg)",
     },
     warning: {
-      color: "#b8860b", // Dark goldenrod
-      borderColor: "#b8860b",
-      backgroundColor: "rgba(184, 134, 11, 0.05)",
+      color: "var(--color-warning)",
+      borderColor: "var(--color-warning)",
+      backgroundColor: "var(--color-warning-bg)",
     },
   };
 
