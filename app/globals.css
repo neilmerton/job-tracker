@@ -549,12 +549,10 @@ dialog.drawer {
   --transition-speed: 300ms;
   background-color: var(--color-surface);
   border-radius: 0;
-  border: 1px solid var(--color-border);
   border: none;
   box-shadow: var(--shadow-soft);
   box-sizing: border-box;
   color: var(--color-foreground);
-  display: grid;
   grid-template-rows: auto 1fr;
   height: 100dvh;
   margin-left: auto;
@@ -573,6 +571,7 @@ dialog.drawer {
 }
 
 dialog.drawer[open] {
+  display: grid;
   opacity: 1;
   transform: translateX(0);
 }
