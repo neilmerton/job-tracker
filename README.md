@@ -58,8 +58,6 @@ A streamlined, Next.js-based web application for tracking job applications and n
 4. **Run the Development Server:**
 
    ```bash
-   npm run dev
-   # or
    pnpm dev
    ```
 
@@ -107,8 +105,6 @@ This project uses [Vitest](https://vitest.dev/) alongside [React Testing Library
 To run the unit tests locally:
 
 ```bash
-npm run test
-# or
 pnpm test
 ```
 
