@@ -17,7 +17,7 @@ export async function createJobAction(formData: FormData) {
   const contactMobile = String(formData.get("contact_mobile") ?? "").trim();
   const status = String(formData.get("status") ?? "").trim();
 
-  if (!dateApplied || !role || !jobType || !source || !company || !status) {
+  if (!dateApplied || !role || !jobType || !source || !company) {
     throw new Error("Missing required fields for job application.");
   }
 
@@ -32,7 +32,7 @@ export async function createJobAction(formData: FormData) {
     contact_name: contactName || null,
     contact_email: contactEmail || null,
     contact_mobile: contactMobile || null,
-    status,
+    status: status || "applied",
   });
 
   redirect(`/jobs`);
