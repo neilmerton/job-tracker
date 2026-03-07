@@ -17,7 +17,7 @@ export default async function ConnectionsPage() {
         <Drawer
           id="add-connection-drawer"
           buttonLabel="Add connection"
-          drawerTitle="Add connection"
+          drawerTitle="New connection"
         >
           <ConnectionFormAdd />
         </Drawer>
