@@ -2,17 +2,14 @@
 
 import { useActionState } from "react";
 import { createJobAction } from "../actions";
+import ErrorMessage from "@/components/ErrorMessage";
 
 export default function NewJobForm() {
   const [state, formAction] = useActionState(createJobAction, null);
 
   return (
     <form className="form" action={formAction}>
-      {state?.error && (
-        <div style={{ color: "red", marginBottom: "1rem", padding: "0.5rem", border: "1px solid red", borderRadius: "4px" }}>
-          {state.error}
-        </div>
-      )}
+      <ErrorMessage error={state?.error} />
       <section>
         <fieldset className="form">
           <legend className="form-label">Job</legend>
