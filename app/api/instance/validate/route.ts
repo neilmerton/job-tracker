@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { validateInstanceSecret } from "@/lib/repositories";
+import { validateInstanceSecret } from "@/lib/services/InstanceService";
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);

@@ -1,5 +1,6 @@
 import Drawer from "@/components/Drawer";
-import { listJobs } from "@/lib/repositories";
+import PageHeader from "@/components/PageHeader";
+import { listJobs } from "@/lib/services/JobService";
 import Board from "./components/Board";
 import JobFormAdd from "./components/JobFormAdd";
 
@@ -8,11 +9,10 @@ export default async function JobsPage() {
 
   return (
     <section>
-      <header className="page-header">
-        <h1 className="page-header__title">Applications</h1>
-        <p className="page-header__subtitle">
-          View and manage job applications you have sent.
-        </p>
+      <PageHeader
+        title="Applications"
+        subtitle="View and manage job applications you have sent."
+      >
         <Drawer
           id="add-job"
           buttonLabel="Add application"
@@ -20,7 +20,7 @@ export default async function JobsPage() {
         >
           <JobFormAdd />
         </Drawer>
-      </header>
+      </PageHeader>
 
       {jobs.length === 0 ? (
         <p className="form-help">

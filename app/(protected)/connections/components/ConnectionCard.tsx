@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Connection } from "@/lib/repositories";
+import { Connection } from "@/lib/types";
+import DetailRow from "@/components/DetailRow";
 
 export default function ConnectionCard({ connection }: { connection: Connection }) {
   return (
@@ -12,14 +13,8 @@ export default function ConnectionCard({ connection }: { connection: Connection 
         <span className="badge">{connection.status}</span>
       </div>
       <dl className="connection-card__details">
-        <div className="form-field">
-          <dt className="form-label">Requested</dt>
-          <dd>{connection.date_requested}</dd>
-        </div>
-        <div className="form-field">
-          <dt className="form-label">Last update</dt>
-          <dd>{connection.last_update_date ?? "—"}</dd>
-        </div>
+        <DetailRow label="Requested" value={connection.date_requested} />
+        <DetailRow label="Last update" value={connection.last_update_date ?? "—"} />
       </dl>
       <div className="connection-card__actions">
         <Link href={`/connections/${connection.id}`} className="button button--secondary">

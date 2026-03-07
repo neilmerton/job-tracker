@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createConnectionUpdateAction } from "./../actions";
-import { getConnectionById, listUpdatesForParent } from "@/lib/repositories";
+import { getConnectionById } from "@/lib/services/ConnectionService";
+import { listUpdatesForParent } from "@/lib/services/UpdateService";
 
 export default async function ConnectionDetailPage({
   params,
@@ -10,7 +11,7 @@ export default async function ConnectionDetailPage({
 }>) {
   const { id } = await params;
   const connection = await getConnectionById(id);
-  
+
   if (!connection) {
     notFound();
   }

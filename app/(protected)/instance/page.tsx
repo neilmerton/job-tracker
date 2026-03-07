@@ -1,4 +1,4 @@
-import { getInstance } from "@/lib/repositories";
+import { getInstance } from "@/lib/services/InstanceService";
 import InstanceSettings from "./InstanceSettings";
 
 export default async function InstancePage() {

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { listConnections } from "@/lib/repositories";
+import { listConnections } from "@/lib/services/ConnectionService";
 import Drawer from "@/components/Drawer";
+import PageHeader from "@/components/PageHeader";
 import ConnectionCard from "./components/ConnectionCard";
 import ConnectionFormAdd from "./components/ConnectionFormAdd";
 
@@ -9,11 +10,10 @@ export default async function ConnectionsPage() {
 
   return (
     <section>
-      <header className="page-header">
-        <h1 className="page-header__title">Connections</h1>
-        <p className="page-header__subtitle">
-          Track outreach to recruiters and other contacts.
-        </p>
+      <PageHeader
+        title="Connections"
+        subtitle="Track outreach to recruiters and other contacts."
+      >
         <Drawer
           id="add-connection-drawer"
           buttonLabel="Add connection"
@@ -21,7 +21,7 @@ export default async function ConnectionsPage() {
         >
           <ConnectionFormAdd />
         </Drawer>
-      </header>
+      </PageHeader>
 
       {connections.length === 0 ? (
         <p className="form-help">

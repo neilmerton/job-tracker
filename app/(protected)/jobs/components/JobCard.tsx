@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState, useTransition } from "react";
 import { draggable } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
-import { Job, Update } from "@/lib/repositories";
+import { Job, Update } from "@/lib/types";
 import { getJobUpdatesAction, addJobUpdateBoardAction } from "../actions";
 import Message from "@/components/Message";
+import DetailRow from "@/components/DetailRow";
 
 export default function JobCard({ job }: { job: Job }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -85,34 +86,34 @@ export default function JobCard({ job }: { job: Job }) {
       {isExpanded && (
         <div className="job-card__expanded-content" style={{ marginTop: "1rem" }}>
           <dl className="job-card__details">
-            <div className="form-field">
-              <dt className="form-label" style={{ fontSize: "0.85rem" }}>Job type</dt>
-              <dd style={{ margin: 0, fontSize: "0.85rem", color: "var(--color-muted)" }}>{job.job_type}</dd>
-            </div>
-            <div className="form-field">
-              <dt className="form-label" style={{ fontSize: "0.85rem" }}>Source</dt>
-              <dd style={{ margin: 0, fontSize: "0.85rem", color: "var(--color-muted)" }}>{job.source}</dd>
-            </div>
+            <DetailRow label="Job type" value={job.job_type} />
+            <DetailRow label="Source" value={job.source} />
+
             {job.link && (
-              <div className="form-field">
-                <dt className="form-label" style={{ fontSize: "0.85rem" }}>Link</dt>
-                <dd style={{ margin: 0, fontSize: "0.85rem" }}>
-                  <a href={job.link} target="_blank" rel="noopener noreferrer">View Post</a>
-                </dd>
-              </div>
+              <DetailRow
+                label="Link"
+                value={
+                  <a href={job.link} target="_blank" rel="noopener noreferrer">
+                    View Post
+                  </a>
+                }
+              />
             )}
-            <div className="form-field">
-              <dt className="form-label" style={{ fontSize: "0.85rem" }}>Contact</dt>
-              <dd style={{ margin: 0, fontSize: "0.85rem", color: "var(--color-muted)" }}>
-                {job.contact_name || job.contact_email || job.contact_mobile ? (
+
+            <DetailRow
+              label="Contact"
+              value={
+                job.contact_name || job.contact_email || job.contact_mobile ? (
                   <>
                     {job.contact_name && <span>{job.contact_name}</span>}
                     {job.contact_email && <><br /><span>{job.contact_email}</span></>}
                     {job.contact_mobile && <><br /><span>{job.contact_mobile}</span></>}
                   </>
-                ) : "—"}
-              </dd>
-            </div>
+                ) : (
+                  "—"
+                )
+              }
+            />
           </dl>
 
           <h4 style={{ margin: "1rem 0 0.5rem 0", fontSize: "1rem" }}>Description</h4>

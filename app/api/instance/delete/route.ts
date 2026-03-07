@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   deleteInstanceCompletely,
   validateInstanceSecret,
-} from "@/lib/repositories";
+} from "@/lib/services/InstanceService";
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);

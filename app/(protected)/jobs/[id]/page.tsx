@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import JobUpdateForm from "../components/JobUpdateForm";
-import { getJobById, listUpdatesForParent } from "@/lib/repositories";
+import { getJobById } from "@/lib/services/JobService";
+import { listUpdatesForParent } from "@/lib/services/UpdateService";
 
 export default async function JobDetailPage({
   params,

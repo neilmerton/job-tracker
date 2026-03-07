@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createJob, createUpdate, listUpdatesForParent, updateJobStatus } from "@/lib/repositories";
+import { createJob, updateJobStatus } from "@/lib/services/JobService";
+import { createUpdate, listUpdatesForParent } from "@/lib/services/UpdateService";
 
 export async function createJobAction(prevState: any, formData: FormData) {
   const dateApplied = String(formData.get("date_applied") ?? "").trim();

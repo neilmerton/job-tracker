@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { getInstance, updateInstance } from "@/lib/repositories";
+import { getInstance, updateInstance } from "@/lib/services/InstanceService";
 
 export async function POST(request: NextRequest) {
   const existing = await getInstance();

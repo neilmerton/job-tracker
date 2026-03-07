@@ -4,7 +4,7 @@ import { useEffect, useState, useTransition } from "react";
 import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
 import Column from "./Column";
 import JobCard from "./JobCard";
-import { Job } from "@/lib/repositories";
+import { Job } from "@/lib/types";
 import { updateJobStatusOnlyAction } from "../actions";
 
 const COLUMNS = ["applied", "interviewing", "offer", "rejected"];

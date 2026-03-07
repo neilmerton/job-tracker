@@ -1,7 +1,8 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createConnection, createUpdate } from "@/lib/repositories";
+import { createConnection } from "@/lib/services/ConnectionService";
+import { createUpdate } from "@/lib/services/UpdateService";
 
 export async function createConnectionAction(prevState: any, formData: FormData) {
   const dateRequested = String(formData.get("date_requested") ?? "").trim();
