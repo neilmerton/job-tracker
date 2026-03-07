@@ -275,11 +275,29 @@ img {
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
 }
 
 .form-label {
   font-weight: 500;
+}
+
+.form fieldset {
+  border: 0;
+  border-top: 1px dashed var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
+}
+
+.form fieldset legend {
+  font-size: 90%;
+  margin-block-end: var(--space-lg);
+  padding-inline-end: var(--space-md);
+  padding-inline-start: 0;
+  text-transform: uppercase;
 }
 
 .form-input,
