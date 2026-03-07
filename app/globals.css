@@ -310,6 +310,12 @@ img {
   padding: 0.5rem 0.75rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
+
 .form-textarea {
   min-height: 6rem;
   resize: vertical;
