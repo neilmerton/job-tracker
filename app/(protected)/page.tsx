@@ -1,8 +1,10 @@
 import { listJobs } from "@/lib/services/JobService";
 import { listConnections } from "@/lib/services/ConnectionService";
-import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import SummarySection from "@/components/SummarySection";
+import Drawer from "@/components/Drawer";
+import JobFormAdd from "./jobs/components/JobFormAdd";
+import ConnectionFormAdd from "./connections/components/ConnectionFormAdd";
 import { countByStatus } from "@/lib/utils/dataProcessing";
 
 export default async function DashboardPage() {
@@ -26,15 +28,15 @@ export default async function DashboardPage() {
         </button>
         <nav id="add-menu" className="dropdown" popover="" style={{ positionAnchor: "--add-menu-btn" } as React.CSSProperties} role="menu" aria-labelledby="addButton">
           <ul className="menu" role="menu" aria-labelledby="addButton">
-            <li role="menuitem">
-              <Link href="/jobs/new">
-                Application
-              </Link>
+            <li role="menuitem" style={{ display: "grid" }}>
+              <Drawer id="add-job-drawer-dash" buttonLabel="Application" drawerTitle="New application">
+                <JobFormAdd />
+              </Drawer>
             </li>
-            <li role="menuitem">
-              <Link href="/connections/new">
-                Connection
-              </Link>
+            <li role="menuitem" style={{ display: "grid" }}>
+              <Drawer id="add-connection-drawer-dash" buttonLabel="Connection" drawerTitle="New connection">
+                <ConnectionFormAdd />
+              </Drawer>
             </li>
           </ul>
         </nav>

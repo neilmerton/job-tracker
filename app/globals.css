@@ -220,7 +220,7 @@ img {
     "description action";
 }
 
-.page-header .button {
+.page-header>.button {
   grid-area: action;
 }
 
@@ -261,7 +261,7 @@ img {
   color: var(--color-accent-text);
   cursor: pointer;
   display: inline-flex;
-  gap: var(--space-xs);
+  gap: var(--space-sm);
   justify-content: center;
   padding: var(--space-sm) var(--space-md);
   text-decoration: none;
@@ -454,16 +454,11 @@ img {
     gap: var(--space-sm);
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: var(--space-xs);
   }
 
-  li>a {
-    background-color: var(--color-accent);
-    border-radius: var(--radius-md);
-    color: var(--color-accent-text);
-    display: block;
-    padding: var(--space-sm) var(--space-md);
-    text-decoration: none;
+  li>.button {
+    font-size: 90%;
   }
 }
 
