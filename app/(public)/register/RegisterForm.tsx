@@ -59,9 +59,15 @@ export default function RegisterForm(): JSX.Element {
     }
   };
 
+  const pageHeaderStyle = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.5rem",
+  } as const;
+
   return (
     <section aria-labelledby="register-title" className="card">
-      <header className="page-header">
+      <header className="page-header" style={pageHeaderStyle}>
         <h1 id="register-title" className="page-header__title">
           Register your job tracker
         </h1>
