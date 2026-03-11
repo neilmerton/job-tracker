@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, JSX, useState } from "react";
+import { type SubmitEvent, JSX, useState } from "react";
 import Link from "next/link";
 
 const SECRET_STORAGE_KEY = "job-tracker-secret";
@@ -11,7 +11,7 @@ export default function RegisterForm(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
     setIsSubmitting(true);

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { type SubmitEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useInstance } from "@/components/InstanceGuard";
 
@@ -24,7 +24,7 @@ export default function InstanceSettings() {
     );
   }
 
-  const handleUpdate = async (event: FormEvent<HTMLFormElement>) => {
+  const handleUpdate = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setUpdateError(null);
     setIsUpdating(true);
@@ -66,7 +66,7 @@ export default function InstanceSettings() {
     }
   };
 
-  const handleDelete = async (event: FormEvent<HTMLFormElement>) => {
+  const handleDelete = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setDeleteError(null);
     setIsDeleting(true);

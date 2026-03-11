@@ -7,7 +7,7 @@ import {
   useMemo,
   useRef,
   useState,
-  type FormEvent,
+  type SubmitEvent,
   type Dispatch,
   type SetStateAction,
   type ReactNode,
@@ -194,7 +194,7 @@ function SecretPrompt({
     inputRef.current?.focus();
   }, []);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const secret = String(formData.get("secret") ?? "");
