@@ -19,6 +19,7 @@ export async function createConnectionAction(prevState: any, formData: FormData)
   }
 
   const connection = await createConnection({
+    date: dateRequested,
     date_requested: dateRequested,
     company,
     contact_name: contactName || null,

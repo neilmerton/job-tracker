@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { FormEvent, JSX, useState } from "react";
+import Link from "next/link";
 
 const SECRET_STORAGE_KEY = "job-tracker-secret";
 
@@ -162,6 +163,15 @@ export default function RegisterForm(): JSX.Element {
           </button>
         </div>
       </form>
+      <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
+        <p className="form-help">
+          Already have an instance?{" "}
+          <Link href="/login" style={{ color: "var(--color-primary-500)", textDecoration: "underline" }}>
+            Log in here
+          </Link>
+          .
+        </p>
+      </div>
     </section>
   );
 }

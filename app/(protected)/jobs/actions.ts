@@ -23,6 +23,7 @@ export async function createJobAction(prevState: any, formData: FormData) {
   }
 
   const job = await createJob({
+    date: dateApplied,
     date_applied: dateApplied,
     role,
     description: description || null,
