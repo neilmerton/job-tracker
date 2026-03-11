@@ -329,6 +329,8 @@ img {
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   color: inherit;
+  font-family: inherit;
+  font-size: inherit;
   padding: 0.5rem 0.75rem;
 }
 
