@@ -31,7 +31,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-backdrop-rgb: 255, 255, 255;
+    --color-backdrop-rgb: 128, 128, 128;
     --color-background: hsl(240, 84%, 5%);
     --color-background-secondary: hsl(240, 84%, 20%);
     --color-foreground: hsl(240, 13%, 91%);
@@ -219,10 +219,10 @@ img {
   column-gap: var(--space-xl);
 
   &:has(>.button) {
-    grid-template-columns: 1fr max-content;
     grid-template-areas:
       "title action"
       "description action";
+    grid-template-columns: 1fr max-content;
   }
 }
 
