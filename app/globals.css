@@ -92,10 +92,13 @@ img {
 
 .app-shell {
   background-color: var(--color-background);
-  display: grid;
-  grid:
-    "app-main" 1fr "app-nav" auto;
   height: 100vh;
+
+  &:has(.app-shell__nav) {
+    display: grid;
+    grid:
+      "app-main" 1fr "app-nav" auto;
+  }
 }
 
 .app-shell__main {
@@ -189,7 +192,7 @@ img {
 }
 
 @media (min-width: 768px) {
-  .app-shell {
+  .app-shell:has(.app-shell__nav) {
     grid-template-areas:
       "app-nav app-main";
     grid-template-columns: 18rem 1fr;
@@ -214,10 +217,13 @@ img {
   margin-bottom: var(--space-xl);
   display: grid;
   column-gap: var(--space-xl);
-  grid-template-columns: 1fr max-content;
-  grid-template-areas:
-    "title action"
-    "description action";
+
+  &:has(>.button) {
+    grid-template-columns: 1fr max-content;
+    grid-template-areas:
+      "title action"
+      "description action";
+  }
 }
 
 .page-header>.button {
