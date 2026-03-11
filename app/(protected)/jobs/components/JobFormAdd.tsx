@@ -23,6 +23,7 @@ export default function NewJobForm() {
               type="date"
               className="form-input"
               required
+              defaultValue={new Date().toISOString().slice(0, 10)}
             />
           </div>
           <div className="form-field">
