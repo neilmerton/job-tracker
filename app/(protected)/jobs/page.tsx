@@ -1,8 +1,7 @@
-import Drawer from "@/components/Drawer";
 import PageHeader from "@/components/PageHeader";
 import { listJobs } from "@/lib/services/JobService";
 import Board from "./components/Board";
-import JobFormAdd from "./components/JobFormAdd";
+import AddJobButton from "./components/AddJobButton";
 
 export default async function JobsPage() {
   const jobs = await listJobs();
@@ -13,13 +12,7 @@ export default async function JobsPage() {
         title="Applications"
         subtitle="View and manage job applications you have sent."
       >
-        <Drawer
-          id="add-job"
-          buttonLabel="Add application"
-          drawerTitle="New application"
-        >
-          <JobFormAdd />
-        </Drawer>
+        <AddJobButton />
       </PageHeader>
 
       {jobs.length === 0 ? (

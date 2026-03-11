@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { listConnections } from "@/lib/services/ConnectionService";
-import Drawer from "@/components/Drawer";
 import PageHeader from "@/components/PageHeader";
 import ConnectionCard from "./components/ConnectionCard";
-import ConnectionFormAdd from "./components/ConnectionFormAdd";
+import AddConnectionButton from "./components/AddConnectionButton";
 
 export default async function ConnectionsPage() {
   const connections = await listConnections();
@@ -14,13 +13,7 @@ export default async function ConnectionsPage() {
         title="Connections"
         subtitle="Track outreach to recruiters and other contacts."
       >
-        <Drawer
-          id="add-connection-drawer"
-          buttonLabel="Add connection"
-          drawerTitle="New connection"
-        >
-          <ConnectionFormAdd />
-        </Drawer>
+        <AddConnectionButton />
       </PageHeader>
 
       {connections.length === 0 ? (

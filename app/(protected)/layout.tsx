@@ -67,6 +67,9 @@ function Navigation() {
   );
 }
 
+import { DrawerProvider } from "@/contexts/DrawerContext";
+import GlobalDrawer from "@/components/GlobalDrawer";
+
 export default function ProtectedLayout({
   children,
 }: {
@@ -74,12 +77,15 @@ export default function ProtectedLayout({
 }) {
   return (
     <InstanceGuard>
-      <div className="app-shell">
-        <Navigation />
-        <main className="app-shell__main">
-          <div className="app-shell__content">{children}</div>
-        </main>
-      </div>
+      <DrawerProvider>
+        <div className="app-shell">
+          <Navigation />
+          <main className="app-shell__main">
+            <div className="app-shell__content">{children}</div>
+          </main>
+        </div>
+        <GlobalDrawer />
+      </DrawerProvider>
     </InstanceGuard>
   );
 }
