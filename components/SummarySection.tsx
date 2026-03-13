@@ -33,7 +33,7 @@ export default function SummarySection({
       </p>
       {totalCount > 0 ? (
         <ul className="updates-list" aria-label={`${title} by status`}>
-          {Object.entries(countsByStatus).map(([status, count]) => (
+          {Object.entries(countsByStatus).sort(([a], [b]) => a.localeCompare(b)).map(([status, count]) => (
             <li key={status} className="updates-list__item">
               <span className="badge">{status}</span>{" "}
               <span>
