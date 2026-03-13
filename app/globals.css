@@ -200,7 +200,7 @@ img {
 
   .app-shell__nav {
     grid-area: app-nav;
-
+    border-block-start: 0 solid transparent;
     border-inline-end: 1px solid var(--color-border);
     height: 100dvh;
     position: fixed;
