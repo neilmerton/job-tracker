@@ -539,9 +539,10 @@ img {
 }
 
 .job-card__header {
-  display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: space-between;
   margin-bottom: var(--space-xs);
 }
 
@@ -552,8 +553,9 @@ img {
 }
 
 .job-card__date {
-  font-size: 0.75rem;
   color: var(--color-muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
 }
 
 .job-card__company {
