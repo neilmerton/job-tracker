@@ -1,5 +1,8 @@
 # Job Tracker App
 
+> [!IMPORTANT]
+> This project is now archived and no longer maintained. It serves as a reference implementation for a personal job application and networking tracker built with Next.js and Supabase.
+
 A streamlined, Next.js-based web application for tracking job applications and networking connections. It is designed to be a personal, single-tenant tracker with a lightweight authentication mechanism, leveraging Supabase as its database.
 
 ## 🚀 Features
